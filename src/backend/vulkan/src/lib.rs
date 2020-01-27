@@ -613,7 +613,7 @@ impl queue::QueueFamily for QueueFamily {
 
 pub struct PhysicalDevice {
     instance: Arc<RawInstance>,
-    handle: vk::PhysicalDevice,
+    pub handle: vk::PhysicalDevice,
     properties: vk::PhysicalDeviceProperties,
 }
 

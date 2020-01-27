@@ -1389,7 +1389,7 @@ impl queue::CommandQueue<Backend> for CommandQueue {
 
 #[derive(Debug)]
 pub struct Device {
-    raw: Arc<RawDevice>,
+    pub raw: Arc<RawDevice>,
 }
 
 #[derive(Copy, Clone, Debug, Eq, Hash, PartialEq)]

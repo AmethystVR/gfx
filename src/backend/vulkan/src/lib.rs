@@ -74,8 +74,10 @@ lazy_static! {
     } else {
         vec![]
     };
-    static ref DEVICE_PROPERTIES2: CString = CString::new("VK_KHR_get_physical_device_properties2").unwrap();
-    static ref DEVICE_EXTENSIONS: Vec<&'static CStr> = vec![extensions::khr::Swapchain::name()];
+    static ref DEVICE_EXTENSIONS: Vec<&'static CStr> = vec![
+        extensions::khr::Swapchain::name(),
+        CStr::from_bytes_with_nul(b"VK_KHR_external_memory_fd\0").unwrap(),
+    ];
     static ref SURFACE_EXTENSIONS: Vec<&'static CStr> = vec![
         extensions::khr::Surface::name(),
         // Platform-specific WSI extensions
@@ -91,7 +93,7 @@ lazy_static! {
         extensions::khr::Win32Surface::name(),
         #[cfg(target_os = "macos")]
         extensions::mvk::MacOSSurface::name(),
-        &DEVICE_PROPERTIES2,
+        CStr::from_bytes_with_nul(b"VK_KHR_get_physical_device_properties2\0").unwrap(),
     ];
 }
 

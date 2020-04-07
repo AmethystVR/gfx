@@ -121,7 +121,7 @@ pub enum SubpassRef {
 /// both to describe a source or destination subpass; data either
 /// explicitly passes from this subpass to the next or from another
 /// subpass into this one.
-#[derive(Clone, Debug, Hash)]
+#[derive(Clone, Debug, Hash, PartialEq, Eq)]
 #[cfg_attr(feature = "serde", derive(Serialize, Deserialize))]
 pub struct SubpassDependency {
     /// Other subpasses this one depends on.

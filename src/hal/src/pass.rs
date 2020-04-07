@@ -104,7 +104,7 @@ pub type AttachmentRef = (AttachmentId, AttachmentLayout);
 pub const ATTACHMENT_UNUSED: AttachmentId = !0;
 
 /// Which other subpasses a particular subpass depends on.
-#[derive(Copy, Clone, Debug, Hash, PartialEq)]
+#[derive(Copy, Clone, Debug, Hash, PartialEq, Eq)]
 #[cfg_attr(feature = "serde", derive(Serialize, Deserialize))]
 pub enum SubpassRef {
     /// The subpass depends on something that was submitted to the

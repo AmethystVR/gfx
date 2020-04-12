@@ -12,7 +12,7 @@ use std::{borrow::Cow, ops::Range, slice};
 /// but they share most of the internal stuff and are fast to produce.
 /// More importantly, they are fast to execute, since the driver
 /// can optimize out the branch on that other PSO creation.
-#[derive(Debug, Clone, Hash, PartialEq)]
+#[derive(Debug, Clone, PartialEq, Eq, Hash)]
 pub struct SpecializationConstant {
     /// Constant identifier in shader source.
     pub id: u32,
@@ -21,7 +21,7 @@ pub struct SpecializationConstant {
 }
 
 /// Specialization information structure.
-#[derive(Debug, Clone)]
+#[derive(Debug, Clone, PartialEq, Eq, Hash)]
 pub struct Specialization<'a> {
     /// Constant array.
     pub constants: Cow<'a, [SpecializationConstant]>,

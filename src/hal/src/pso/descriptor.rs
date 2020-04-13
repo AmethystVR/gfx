@@ -109,7 +109,7 @@ pub enum DescriptorType {
 /// The binding _must_ match with the corresponding shader interface.
 ///
 /// [`DescriptorPool`]: trait.DescriptorPool.html
-#[derive(Clone, Debug)]
+#[derive(Clone, Debug, PartialEq, Eq, Hash)]
 #[cfg_attr(feature = "serde", derive(Serialize, Deserialize))]
 pub struct DescriptorSetLayoutBinding {
     /// Descriptor bindings range.

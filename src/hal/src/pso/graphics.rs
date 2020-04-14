@@ -86,7 +86,7 @@ pub struct GraphicsShaderSet<'a, B: Backend> {
 }
 
 /// Baked-in pipeline states.
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Debug, Default, Hash, PartialEq, Eq)]
 #[cfg_attr(feature = "serde", derive(Serialize, Deserialize))]
 pub struct BakedStates {
     /// Static viewport. TODO: multiple viewports
@@ -204,7 +204,7 @@ pub struct DepthBias {
 }
 
 /// Rasterization state.
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Copy, Clone, Debug, Hash, PartialEq, Eq)]
 #[cfg_attr(feature = "serde", derive(Serialize, Deserialize))]
 pub struct Rasterizer {
     /// How to rasterize this primitive.
@@ -236,7 +236,7 @@ impl Rasterizer {
 }
 
 /// A description of an equation for how to blend transparent, overlapping fragments.
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Debug, Default, Hash, PartialEq, Eq)]
 #[cfg_attr(feature = "serde", derive(Serialize, Deserialize))]
 pub struct BlendDesc {
     /// The logic operation to apply to the blending equation, if any.
@@ -272,7 +272,7 @@ pub enum LogicOp {
 pub type SampleMask = u64;
 
 ///
-#[derive(Clone, Debug, PartialEq)]
+#[derive(Clone, Debug, Hash, PartialEq, Eq)]
 pub struct Multisampling {
     ///
     pub rasterization_samples: image::NumSamples,
